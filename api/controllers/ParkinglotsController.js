@@ -50,6 +50,8 @@ module.exports = {
         }
         theResponse.value += CarService.calculateValue(parkingHour);
       });
+      theResponse.discountInCents = Math.round(theResponse.discountInCents * 100) / 100;
+      theResponse.value = Math.round(theResponse.value * 100) / 100;
       return res.ok(theResponse, 'Revenue has been successfully calculated');
     });
   }
